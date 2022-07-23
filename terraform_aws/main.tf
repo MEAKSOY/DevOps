@@ -63,6 +63,6 @@ output "tf_example_private_ip" {
   value = aws_instance.tf-ec2.private_ip
 }
 
-resource "aws_s3_bucket" "tf-s3-1" {
-  bucket = "esat-tf-test-bucket-new"
-}
+# resource "aws_s3_bucket" "tf-s3-1" {
+#   bucket = "esat-tf-test-bucket-new"
+# }
