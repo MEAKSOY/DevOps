@@ -5,6 +5,14 @@ terraform {
       version = "4.23.0"
     }
   }
+
+  backend "s3" {
+    bucket = "tf-remote-s3-bucket-esat-new"
+    key = "env/dev/tf-remote-backend.tfstate"
+    region = "us-east-1"
+    dynamodb_table = "tf-s3-app-lock"
+    encrypt = true
+  }
 }
 
 provider "aws" {
@@ -66,3 +74,6 @@ output "tf_example_private_ip" {
 # resource "aws_s3_bucket" "tf-s3-1" {
 #   bucket = "esat-tf-test-bucket-new"
 # }
+output "s3-arn-1" {
+  value = aws_s3_bucket.tf-s3["fredo"].arn
+}
